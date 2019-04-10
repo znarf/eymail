@@ -12,6 +12,10 @@ const Layout = require('./layout');
 
 const additionalComponents = {};
 
+const registerStylesheet = function(stylesheet) {
+  components.stylesheet.set(stylesheet);
+};
+
 const registerAdditionalComponents = function(namespace, components) {
   additionalComponents[namespace] = components;
 };
@@ -129,6 +133,7 @@ const replaceVariables = function(string, character) {
 };
 
 module.exports = {
+  registerStylesheet,
   registerAdditionalComponents,
   buildComponent,
   buildHtmlAsync,

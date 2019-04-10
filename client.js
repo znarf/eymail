@@ -1,10 +1,9 @@
 const React = require('react');
 const ReactResolver = require('react-resolver');
 
-const components = require('@eymail/components');
 const { Editor, builder } = require('@eymail/editor/lib/client');
 
-require('./eyemail.config')({ components, builder });
+require('./eyemail.config')({ builder });
 
 const textarea = document.getElementById('textarea');
 

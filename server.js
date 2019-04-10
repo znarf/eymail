@@ -1,11 +1,9 @@
 const path = require('path');
 const express = require('express');
 
-const components = require('@eymail/components');
-
 const { builder, file, app } = require('@eymail/editor/lib/server');
 
-require('./eyemail.config')({ components, builder });
+require('./eyemail.config')({ builder });
 
 // Register local directory
 file.setTemplateDir(path.resolve(__dirname, 'templates'));
