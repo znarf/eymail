@@ -1,6 +1,6 @@
 {
   "name": "@eymail/editor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "EyeMail Editor",
   "license": "MIT",
   "main": "lib/index.js",
@@ -20,7 +20,7 @@
     "npm": "6.5.0"
   },
   "dependencies": {
-    "@eymail/builder": "^0.0.2",
+    "@eymail/builder": "^0.0.3",
     "body-parser": "^1.18.3",
     "codemirror": "^5.45.0",
     "express": "^4.16.4",

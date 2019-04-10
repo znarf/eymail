@@ -1,6 +1,6 @@
 {
   "name": "eyemail",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "EyeMail",
   "private": true,
   "scripts": {
@@ -20,7 +20,7 @@
     "npm": "6.5.0"
   },
   "dependencies": {
-    "@eymail/editor": "^0.0.2",
+    "@eymail/editor": "^0.0.3",
     "express": "^4.16.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
