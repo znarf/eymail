@@ -18,4 +18,4 @@ Headline3.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Headline3;
+module.exports = Headline3;

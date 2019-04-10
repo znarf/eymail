@@ -5,8 +5,6 @@ const SingleImage = require('./single');
 const Stylesheet = require('../stylesheet');
 
 class FullSizeImage extends SingleImage {
-  static defaultProps = SingleImage.defaultProps;
-
   imgProps() {
     const styles = Stylesheet.get();
     return {
@@ -21,4 +19,6 @@ class FullSizeImage extends SingleImage {
   }
 }
 
-export default FullSizeImage;
+FullSizeImage.defaultProps = SingleImage.defaultProps;
+
+module.exports = FullSizeImage;

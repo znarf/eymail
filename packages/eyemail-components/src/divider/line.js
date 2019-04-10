@@ -38,4 +38,4 @@ LineDivider.defaultProps = {
   height: 32,
 };
 
-export default LineDivider;
+module.exports = LineDivider;

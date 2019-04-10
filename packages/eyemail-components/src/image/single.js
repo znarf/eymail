@@ -6,21 +6,6 @@ const PropTypes = require('prop-types');
 const Stylesheet = require('../stylesheet');
 
 class SingleImage extends React.Component {
-  static propTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string,
-    width: PropTypes.string,
-    height: PropTypes.string,
-    className: PropTypes.string,
-    imgStyle: PropTypes.object,
-  };
-
-  static defaultProps = {
-    alt: '',
-    className: 'singleImage',
-    imgStyle: {},
-  };
-
   imgStyle() {
     const baseStyle = { display: 'block' };
     return _.merge({}, baseStyle, this.props.imgStyle);
@@ -47,4 +32,19 @@ class SingleImage extends React.Component {
   }
 }
 
-export default SingleImage;
+SingleImage.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  className: PropTypes.string,
+  imgStyle: PropTypes.object,
+};
+
+SingleImage.defaultProps = {
+  alt: '',
+  className: 'singleImage',
+  imgStyle: {},
+};
+
+module.exports = SingleImage;

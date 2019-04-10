@@ -1,18 +1,15 @@
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
-  context: __dirname,
-  entry: './client',
+  entry: './client.js',
   output: {
     filename: 'webpack-bundle.js',
-    path: './build',
+    path: path.resolve(__dirname, 'build'),
   },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: { stage: 0 },
-      },
-    ],
-  },
+  plugins: [
+    new webpack.EnvironmentPlugin({
+      IS_CLIENT: true,
+    }),
+  ],
 };

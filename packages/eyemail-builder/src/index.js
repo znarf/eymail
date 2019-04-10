@@ -16,7 +16,7 @@ const registerAdditionalComponents = function(namespace, components) {
   additionalComponents[namespace] = components;
 };
 
-const buildComponent = function(jsx, babel) {
+const buildComponent = function(jsx) {
   // all supported components should be included there
   // we use it in an eval call, so we're disabling eslint
 
@@ -71,7 +71,16 @@ const buildComponent = function(jsx, babel) {
 
   /* eslint-enable no-unused-vars */
 
-  const result = babel.transform(jsx, { stage: 0 });
+  let babel, presets;
+  if (process.env.IS_CLIENT) {
+    babel = require('@babel/standalone');
+    presets = ['react'];
+  } else {
+    babel = require('@babel/core');
+    presets = ['@babel/preset-react'];
+  }
+
+  const result = babel.transform(jsx, { presets });
   if (result.code) {
     // eval is bad but we now what we're doing
     const Template = eval(result.code);
@@ -81,8 +90,8 @@ const buildComponent = function(jsx, babel) {
   }
 };
 
-const buildHtmlAsync = function(templateJsx, callback, options, babel) {
-  const template = buildComponent(templateJsx, babel);
+const buildHtmlAsync = function(templateJsx, callback, options) {
+  const template = buildComponent(templateJsx);
   ReactResolver.Resolver.resolve(() => {
     return React.createElement(Layout, options, template);
   })

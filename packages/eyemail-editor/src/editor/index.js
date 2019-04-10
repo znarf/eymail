@@ -1,8 +1,6 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 
-const babel = require('babel-core/browser');
-
 const request = require('superagent');
 
 const eyemailBuilder = require('@eymail/builder');
@@ -27,7 +25,7 @@ class Editor extends React.Component {
     }
 
     const code = eyemailBuilder.replaceVariables(props.code, '[');
-    this.state.template = eyemailBuilder.buildComponent(code, babel);
+    this.state.template = eyemailBuilder.buildComponent(code);
 
     this.textarea = React.createRef();
     this.commitMessage = React.createRef();
@@ -62,7 +60,7 @@ class Editor extends React.Component {
     }
     this.updateTimeout = setTimeout(() => {
       const code = eyemailBuilder.replaceVariables(newValue, '[');
-      const template = eyemailBuilder.buildComponent(code, babel);
+      const template = eyemailBuilder.buildComponent(code);
       if (template) {
         this.setState({ code: newValue, template });
       }
@@ -235,4 +233,4 @@ Editor.defaultProps = {
   folders: [],
 };
 
-export default Editor;
+module.exports = Editor;

@@ -8,4 +8,4 @@ Text.Headline3 = require('./headline3');
 Text.Paragraph = require('./paragraph');
 Text.Link = require('./link');
 
-export default Text;
+module.exports = Text;

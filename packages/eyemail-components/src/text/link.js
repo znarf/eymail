@@ -30,4 +30,4 @@ Link.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Link;
+module.exports = Link;

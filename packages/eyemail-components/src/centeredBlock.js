@@ -39,4 +39,4 @@ CenteredBlock.defaultProps = {
   innerStyle: {},
 };
 
-export default CenteredBlock;
+module.exports = CenteredBlock;

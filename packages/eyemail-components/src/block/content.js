@@ -48,4 +48,4 @@ Content.defaultProps = {
   padding: '32px',
 };
 
-export default Content;
+module.exports = Content;

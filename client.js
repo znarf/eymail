@@ -2,7 +2,7 @@ const React = require('react');
 const ReactResolver = require('react-resolver');
 
 const components = require('@eymail/components');
-const { Editor, builder } = require('@eymail/editor/client');
+const { Editor, builder } = require('@eymail/editor/lib/client');
 
 require('./eyemail.config')({ components, builder });
 

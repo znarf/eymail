@@ -2,8 +2,6 @@ const fs = require('fs');
 
 const path = require('path');
 
-const babel = require('babel');
-
 const React = require('react');
 const ReactResolver = require('react-resolver');
 const ReactDomServer = require('react-dom/server');
@@ -17,7 +15,7 @@ const buildHtmlWithCss = function(templateJsx, callback) {
   const templateCss = fs
     .readFileSync(path.join(__dirname, '../style.css'))
     .toString();
-  builder.buildHtmlAsync(templateJsx, callback, { style: templateCss }, babel);
+  builder.buildHtmlAsync(templateJsx, callback, { style: templateCss });
 };
 
 const replaceVariables = function(html) {

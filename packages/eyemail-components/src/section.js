@@ -30,4 +30,4 @@ Section.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Section;
+module.exports = Section;

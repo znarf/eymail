@@ -64,4 +64,4 @@ BaseBlock.defaultProps = {
   innerStyle: {},
 };
 
-export default BaseBlock;
+module.exports = BaseBlock;

@@ -44,4 +44,4 @@ Bubble.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Bubble;
+module.exports = Bubble;

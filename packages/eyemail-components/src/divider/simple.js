@@ -30,4 +30,4 @@ SimpleDivider.defaultProps = {
   height: 20,
 };
 
-export default SimpleDivider;
+module.exports = SimpleDivider;

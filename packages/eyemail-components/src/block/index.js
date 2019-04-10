@@ -6,4 +6,4 @@ Block.Image = require('./image');
 Block.Content = require('./content');
 Block.Bubble = require('./bubble');
 
-export default Block;
+module.exports = Block;

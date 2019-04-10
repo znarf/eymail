@@ -25,4 +25,4 @@ Paragraph.defaultProps = {
   style: {},
 };
 
-export default Paragraph;
+module.exports = Paragraph;

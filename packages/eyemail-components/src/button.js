@@ -61,4 +61,4 @@ Button.defaultProps = {
   padding: '12px',
 };
 
-export default Button;
+module.exports = Button;

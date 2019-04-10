@@ -23,4 +23,4 @@ Cta.defaultProps = {
   border: '2px solid #ffffff',
 };
 
-export default Cta;
+module.exports = Cta;
