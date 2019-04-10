@@ -1,0 +1,46 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+}
+@media (max-width: 600px) {
+  .maxWidth,
+  .fullSizeImage {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 400px) {
+  .textWidth,
+  .singleImage {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 400px) {
+  img.sixbyfour {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+@media (max-width: 400px) {
+  img.square {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+a {
+  color: #666666;
+}
+.legend,
+.footer {
+  -webkit-text-size-adjust: none;
+}
+.legal a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+}
