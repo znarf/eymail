@@ -1,4 +1,4 @@
-# EyeMail
+# Ey'Mail
 
 ## Foreword
 

@@ -3,7 +3,7 @@ const ReactResolver = require('react-resolver');
 
 const { Editor, builder } = require('@eymail/editor/lib/client');
 
-require('./eyemail.config')({ builder });
+require('./eymail.config')({ builder });
 
 const textarea = document.getElementById('textarea');
 

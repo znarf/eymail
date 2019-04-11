@@ -3,7 +3,7 @@ const express = require('express');
 
 const { builder, file, app } = require('@eymail/editor/lib/server');
 
-require('./eyemail.config')({ builder });
+require('./eymail.config')({ builder });
 
 // Register local directory
 file.setTemplateDir(path.resolve(__dirname, 'templates'));
