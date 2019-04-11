@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public/')));
 app.use(
   '/codemirror',
-  express.static(path.join(__dirname, '../../node_modules/codemirror')),
+  express.static(path.dirname(require.resolve('codemirror/package.json'))),
 );
 
 // routing
