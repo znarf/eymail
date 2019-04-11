@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "EyeMail Editor",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "lib/index.js",
   "scripts": {
     "build": "babel --copy-files src --out-dir lib",

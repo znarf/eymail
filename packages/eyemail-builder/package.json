@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "EyeMail Builder",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
