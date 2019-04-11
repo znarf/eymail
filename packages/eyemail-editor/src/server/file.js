@@ -9,6 +9,12 @@ file.setTemplateDir = function(dir) {
   templateDir = dir;
 };
 
+let templateExtension = '.tpl';
+
+file.setExtension = function(extension) {
+  templateExtension = extension;
+};
+
 file.getTemplates = function(query, folder, callback) {
   let dir = templateDir;
   if (folder) {
@@ -24,7 +30,7 @@ file.getTemplates = function(query, folder, callback) {
 
     payload.templates = files
       .filter(file => !fs.statSync(`${dir}/${file}`).isDirectory())
-      .map(file => file.replace('.tpl', ''));
+      .map(file => file.replace(templateExtension, ''));
 
     callback(payload);
   });
@@ -37,7 +43,7 @@ file.getTemplate = function(template, folder, callback) {
   }
 
   fs.readFile(
-    path.resolve(`${dir}/${template}.tpl`),
+    path.resolve(`${dir}/${template}${templateExtension}`),
     'utf8',
     (err, templateJsx) => {
       callback(templateJsx);
