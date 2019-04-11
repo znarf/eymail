@@ -32,7 +32,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-resolver": "^3.1.2",
-    "superagent": "^1.4.0"
+    "superagent": "^5.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
