@@ -27,8 +27,10 @@ const buildComponent = function(jsx) {
   /* eslint-disable no-unused-vars */
 
   const Container = components.container;
-  /* Container is boring, why not name it EyeMail? :-) */
+  // Container is boring, why not name it EyeMail? :-)
   const EyeMail = Container;
+  // Actually, it's EyMail now ;-)
+  const EyMail = Container;
 
   const Block = components.block;
   /* Names used before we had namespaces */
