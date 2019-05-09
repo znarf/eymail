@@ -31,6 +31,8 @@ const buildComponent = function(jsx) {
   const EyeMail = Container;
   // Actually, it's EyMail now ;-)
   const EyMail = Container;
+  // Or Eymail!
+  const Eymail = Container;
 
   const Block = components.block;
   /* Names used before we had namespaces */

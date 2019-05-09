@@ -23,7 +23,7 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  title: "Ey'Mail Template",
+  title: 'Eymail Template',
 };
 
 module.exports = Layout;

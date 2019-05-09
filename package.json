@@ -1,7 +1,7 @@
 {
   "name": "eymail",
   "version": "0.0.6",
-  "description": "Ey'Mail",
+  "description": "Eymail",
   "private": true,
   "scripts": {
     "watch": "webpack --watch --progress --colors",

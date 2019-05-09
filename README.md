@@ -1,4 +1,4 @@
-# Ey'Mail
+# Eymail
 
 ## Foreword
 
@@ -19,9 +19,10 @@ If you see a step below that could be improved (or is outdated), please update t
 ### Install
 
 ```
-git clone git@github.com:eyeem/eyemail.git
-cd eyemail
+git clone git@github.com:znarf/eymail.git
+cd eymail
 lerna bootstrap
+lerna link
 ```
 
 ### Start
