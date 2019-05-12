@@ -130,6 +130,20 @@ const eyemail = {
       res.send(html);
     });
   },
+
+  renderTemplate: function(req, res) {
+    const folder = req.params.folder;
+    const template = req.params.template;
+    const isDirtyTemplateString = /[[\]{}]+/.test(template);
+    if (isDirtyTemplateString) {
+      res.send('Dirty');
+    }
+    File.getTemplate(template, folder, templateJsx => {
+      buildHtmlWithCss(templateJsx, markup => {
+        res.send(markup);
+      });
+    });
+  },
 };
 
 module.exports = eyemail;
