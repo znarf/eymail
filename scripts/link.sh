@@ -1,0 +1,9 @@
+cd packages/eymail-builder
+npm link
+cd -
+cd packages/eymail-components
+npm link
+cd -
+cd packages/eymail-editor
+npm link
+cd -
