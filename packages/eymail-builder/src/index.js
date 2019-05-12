@@ -20,7 +20,7 @@ const registerAdditionalComponents = function(namespace, components) {
   additionalComponents[namespace] = components;
 };
 
-const buildComponent = function(jsx) {
+const buildComponent = function(jsx, variables = {}) {
   // all supported components should be included there
   // we use it in an eval call, so we're disabling eslint
 
@@ -77,6 +77,9 @@ const buildComponent = function(jsx) {
     _global[namespace] = additionalComponents[namespace];
   }
 
+  // Make variables available as props
+  const props = variables;
+
   /* eslint-enable no-unused-vars */
 
   let babel, presets;
@@ -98,10 +101,10 @@ const buildComponent = function(jsx) {
   }
 };
 
-const buildHtmlAsync = function(templateJsx, callback, options) {
+const buildHtmlAsync = function(templateJsx, callback, props) {
   const template = buildComponent(templateJsx);
   ReactResolver.Resolver.resolve(() => {
-    return React.createElement(Layout, options, template);
+    return React.createElement(Layout, props, template);
   })
     .then(result => {
       const ResolvedElement = React.createElement(result.Resolved);
