@@ -62,9 +62,14 @@ router
     eyemail.saveTemplate(req, res);
   });
 
-router.route('/template/:template/render').post((req, res) => {
-  eyemail.renderTemplate(req, res);
-});
+router
+  .route('/template/:template/render')
+  .get((req, res) => {
+    eyemail.renderTemplate(req, res);
+  })
+  .post((req, res) => {
+    eyemail.renderTemplate(req, res);
+  });
 
 router.route('/download').post((req, res) => {
   eyemail.downloadTemplate(req, res);

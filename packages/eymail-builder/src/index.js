@@ -101,8 +101,8 @@ const buildComponent = function(jsx, variables = {}) {
   }
 };
 
-const buildHtmlAsync = function(templateJsx, callback, props) {
-  const template = buildComponent(templateJsx);
+const buildHtmlAsync = function(templateJsx, props, callback) {
+  const template = buildComponent(templateJsx, props);
   ReactResolver.Resolver.resolve(() => {
     return React.createElement(Layout, props, template);
   })

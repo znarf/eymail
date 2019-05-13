@@ -10,12 +10,15 @@ const Editor = require('../editor');
 
 const File = require('./file');
 
-const buildHtmlWithCss = function(templateJsx, callback) {
+const buildHtmlWithCss = function(templateJsx, props, callback) {
   const builder = require('@eymail/builder');
   const templateCss = fs
     .readFileSync(path.join(__dirname, '../style.css'))
     .toString();
-  builder.buildHtmlAsync(templateJsx, callback, { style: templateCss });
+  builder.buildHtmlAsync(templateJsx, props, callback, {
+    ...props,
+    style: templateCss,
+  });
 };
 
 const replaceVariables = function(html) {
@@ -51,7 +54,7 @@ const eyemail = {
     const isDirtyTemplateString = /[[\]{}]+/.test(template);
     if (!isDirtyTemplateString) {
       File.getTemplate(template, folder, templateJsx => {
-        buildHtmlWithCss(templateJsx, markup => {
+        buildHtmlWithCss(templateJsx, {}, markup => {
           res.send(replaceVariables(markup));
         });
       });
@@ -106,6 +109,21 @@ const eyemail = {
     });
   },
 
+  renderTemplate: function(req, res) {
+    const folder = req.params.folder;
+    const template = req.params.template;
+    const props = req.body.props || {};
+    const isDirtyTemplateString = /[[\]{}]+/.test(template);
+    if (isDirtyTemplateString) {
+      res.send('Dirty');
+    }
+    File.getTemplate(template, folder, templateJsx => {
+      buildHtmlWithCss(templateJsx, props, markup => {
+        res.send(markup);
+      });
+    });
+  },
+
   saveTemplate: function(req, res) {
     const template = req.params.template;
     const message = req.body.message;
@@ -128,20 +146,6 @@ const eyemail = {
     buildHtmlWithCss(req.body.templateJsx, html => {
       res.attachment('template.html');
       res.send(html);
-    });
-  },
-
-  renderTemplate: function(req, res) {
-    const folder = req.params.folder;
-    const template = req.params.template;
-    const isDirtyTemplateString = /[[\]{}]+/.test(template);
-    if (isDirtyTemplateString) {
-      res.send('Dirty');
-    }
-    File.getTemplate(template, folder, templateJsx => {
-      buildHtmlWithCss(templateJsx, markup => {
-        res.send(markup);
-      });
     });
   },
 };
