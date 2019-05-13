@@ -35,6 +35,9 @@ const buildComponent = function(jsx, props = {}) {
     button: Button,
   } = components;
 
+  const { Line } = Divider;
+  const { Headline1, Headline2, Headline3, Paragraph, Link } = Text;
+
   const {
     Headline1: H1,
     Headline2: H2,
@@ -42,8 +45,6 @@ const buildComponent = function(jsx, props = {}) {
     Paragraph: P,
     Link: A,
   } = Text;
-
-  const { Line: Line } = Divider;
 
   const EyeMail = Container;
   const EyMail = Container;
