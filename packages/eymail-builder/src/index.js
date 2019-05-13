@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 const React = require('react');
 const ReactResolver = require('react-resolver');
 const ReactDomServer = require('react-dom/server');
@@ -119,30 +117,9 @@ const buildHtmlAsync = function(templateJsx, props, callback) {
     });
 };
 
-const replaceVariables = function(string, character) {
-  const variables = {
-    firstName: 'Pedro',
-    amount: '20.15',
-    photoId: '72924172',
-    thumbUrl:
-      'https://cdn.eyeem.com/thumb/w/720/58fdaa8dcd61164044175457a2d509b94a9abf96-1442596777',
-  };
-  _.each(variables, (value, key) => {
-    let regexp;
-    if (character === '{') {
-      regexp = `\\{\\{${key}\\}\\}`;
-    } else {
-      regexp = `\\[\\[${key}\\]\\]`;
-    }
-    string = string.replace(new RegExp(regexp, 'g'), value);
-  });
-  return string;
-};
-
 module.exports = {
   registerStylesheet,
   registerAdditionalComponents,
   buildComponent,
   buildHtmlAsync,
-  replaceVariables,
 };

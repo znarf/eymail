@@ -21,11 +21,6 @@ const buildHtmlWithCss = function(templateJsx, props, callback) {
   });
 };
 
-const replaceVariables = function(html) {
-  const builder = require('@eymail/builder');
-  return builder.replaceVariables(html, '{');
-};
-
 const eyemail = {
   getTemplates: function(req, res) {
     File.getTemplates(req.query, null, payload => {
@@ -55,7 +50,7 @@ const eyemail = {
     if (!isDirtyTemplateString) {
       File.getTemplate(template, folder, templateJsx => {
         buildHtmlWithCss(templateJsx, {}, markup => {
-          res.send(replaceVariables(markup));
+          res.send(markup);
         });
       });
     } else {

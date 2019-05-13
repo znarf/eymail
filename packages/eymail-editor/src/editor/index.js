@@ -24,8 +24,7 @@ class Editor extends React.Component {
       this.state.code = this.defaultCode();
     }
 
-    const code = eyemailBuilder.replaceVariables(props.code, '[');
-    this.state.template = eyemailBuilder.buildComponent(code);
+    this.state.template = eyemailBuilder.buildComponent(props.code);
 
     this.textarea = React.createRef();
     this.commitMessage = React.createRef();
@@ -59,8 +58,7 @@ class Editor extends React.Component {
       clearTimeout(this.updateTimeout);
     }
     this.updateTimeout = setTimeout(() => {
-      const code = eyemailBuilder.replaceVariables(newValue, '[');
-      const template = eyemailBuilder.buildComponent(code);
+      const template = eyemailBuilder.buildComponent(newValue);
       if (template) {
         this.setState({ code: newValue, template });
       }
