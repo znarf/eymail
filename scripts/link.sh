@@ -7,3 +7,4 @@ cd -
 cd packages/eymail-editor
 npm link
 cd -
+lerna link
