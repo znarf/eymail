@@ -18,38 +18,23 @@ const registerAdditionalComponents = function(namespace, components) {
   additionalComponents[namespace] = components;
 };
 
-const buildComponent = function(jsx, variables = {}) {
+const buildComponent = function(jsx, props = {}) {
+  const _global = typeof window !== 'undefined' ? window : global;
+
   // all supported components should be included there
   // we use it in an eval call, so we're disabling eslint
 
   /* eslint-disable no-unused-vars */
 
-  const Container = components.container;
-  // Container is boring, why not name it EyeMail? :-)
-  const EyeMail = Container;
-  // Actually, it's EyMail now ;-)
-  const EyMail = Container;
-  // Or Eymail!
-  const Eymail = Container;
-
-  const Block = components.block;
-  /* Names used before we had namespaces */
-  const { Content, Bubble } = Block;
-
-  const Image = components.image;
-  /* Names used before we had namespaces */
-  const { Single: SingleImage, FullSize: FullSizeImage } = Image;
-
-  const Text = components.text;
-  /* Names used before we had namespaces */
   const {
-    Headline1: Headline1,
-    Headline2: Headline2,
-    Headline3: Headline3,
-    Paragraph: Copy,
-    Link: Link,
-  } = Text;
-  /* Shortcuts */
+    container: Container,
+    block: Block,
+    imange: Image,
+    text: Text,
+    divider: Divider,
+    button: Button,
+  } = components;
+
   const {
     Headline1: H1,
     Headline2: H2,
@@ -58,25 +43,23 @@ const buildComponent = function(jsx, variables = {}) {
     Link: A,
   } = Text;
 
-  const Divider = components.divider;
-  /* Names used before we had namespaces */
-  const { Simple: SimpleDivider, Line: LineDivider } = Divider;
-  /* Shortcuts */
-  const { Line } = Divider;
+  const { Line: Line } = Divider;
 
-  const Section = components.section;
-  const Legend = components.legend;
-  const Cta = components.cta;
-  const Button = components.button;
+  const EyeMail = Container;
+  const EyMail = Container;
+  const Eymail = Container;
 
+  // Make namespaced components available through global
+  // (sorry, we haven't found better yet)
   for (const namespace in additionalComponents) {
-    const _global = typeof window !== 'undefined' ? window : global;
-    // global is bad but we haven't found better
     _global[namespace] = additionalComponents[namespace];
   }
 
-  // Make variables available as props
-  const props = variables;
+  // Make style available to the container as global
+  // (sorry, we haven't found better yet)
+  if (props.style) {
+    _global.style = props.style;
+  }
 
   /* eslint-enable no-unused-vars */
 
