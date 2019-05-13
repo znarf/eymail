@@ -4,8 +4,6 @@ const express = require('express');
 
 const hbs = require('hbs');
 
-const bodyParser = require('body-parser');
-
 const eyemail = require('./controller');
 
 const app = express();
@@ -17,8 +15,9 @@ app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '../views/'));
 app.engine('html', hbs.__express);
 
-// Used in the Download endpoint
-app.use(bodyParser.urlencoded({ extended: true }));
+// Body Parsers
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Static Assets
 app.use(express.static(path.join(__dirname, '../public/')));
