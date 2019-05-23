@@ -45,6 +45,23 @@ Code style? Commit convention? Please check our [Contributing guidelines](CONTRI
 
 TL;DR: we use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/), we do like great commit messages and clean Git history.
 
+## Release
+
+You will need write access to the [eymail](https://www.npmjs.com/org/eymail) organization on [npm](https://www.npmjs.com/). Check who you are with `npm whoami` and `npm login` if necessary.
+
+Make sure your environment is clean and ready for publish:
+
+```
+lerna clean -y
+lerna bootstrap
+```
+
+Then run:
+
+```
+lerna publish
+```
+
 ## License
 
 MIT
