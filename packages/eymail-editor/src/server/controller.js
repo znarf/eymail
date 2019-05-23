@@ -114,6 +114,7 @@ const eyemail = {
     }
     File.getTemplate(template, folder, templateJsx => {
       buildHtmlWithCss(templateJsx, props, markup => {
+        res.set('Rendered-By', 'eymail');
         res.send(markup);
       });
     });
